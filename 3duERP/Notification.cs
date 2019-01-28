@@ -22,11 +22,11 @@ namespace _3duERP
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@AddedOn",CurrentTime);
-                    if (con.State == ConnectionState.Closed)
+                    if (con.State == ConnectionState.Closed)   
                     {
-                        con.Open();
+                        con.Open(); 
                     }
-                    cmd.Notification = null;
+                    cmd.Notification = null; 
                     SqlDependency SQLDep = new SqlDependency(cmd);
                     SQLDep.OnChange += SQLDep_OnChange;
                     using (SqlDataReader SQLReader = cmd.ExecuteReader())
@@ -51,6 +51,13 @@ namespace _3duERP
                 //re register notification
 
             }
+        }
+        public List<Contact> GetContacts(DateTime AfterTime)
+        {
+            MyPushNotificationEntities m = new MyPushNotificationEntities();
+
+
+
         }
     }
 }
